@@ -70,7 +70,7 @@ export const PolicyMakerDashboard: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-lg font-semibold text-gray-900">Strategic Analytics Dashboard</h3>
-              <p className="text-gray-600">Ireland's educational assessment system performance</p>
+              <p className="text-gray-600">Ireland&apos;s educational assessment system performance</p>
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex space-x-2">

@@ -33,7 +33,7 @@ export default function DashboardPage() {
     return null // Will redirect
   }
 
-  const userRole = session.user.role as UserRole
+  const userRole = (session.user as any)?.role as UserRole
 
   const getDashboardTitle = (role: UserRole) => {
     const titles = {

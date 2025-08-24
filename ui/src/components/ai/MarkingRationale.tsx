@@ -261,7 +261,7 @@ const CriterionCard: React.FC<{ criterion: MarkingCriteria }> = ({ criterion }) 
           <ul className="space-y-1">
             {criterion.evidenceFromResponse.map((evidence, idx) => (
               <li key={idx} className="text-sm text-gray-600 bg-gray-50 p-2 rounded italic">
-                "{evidence}"
+                &ldquo;{evidence}&rdquo;
               </li>
             ))}
           </ul>

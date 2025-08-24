@@ -64,7 +64,7 @@ export default function SignInPage() {
       role: 'Teacher/Examiner',
       description: 'Review AI marking decisions, override when needed, track marking progress',
       icon: AcademicCapIcon,
-      color: 'primary' as const,
+      color: 'default' as const,
     },
     {
       email: 'student@demo.ie',
@@ -217,7 +217,7 @@ interface DemoUserCardProps {
     role: string
     description: string
     icon: React.ComponentType<{ className?: string }>
-    color: 'primary' | 'success' | 'warning' | 'info' | 'secondary'
+    color: 'default' | 'success' | 'warning' | 'info' | 'secondary'
   }
   isSelected: boolean
   onSelect: () => void
@@ -235,7 +235,7 @@ const DemoUserCard: React.FC<DemoUserCardProps> = ({
   const Icon = user.icon
   
   const colorClasses = {
-    primary: 'text-primary-600 bg-primary-100',
+    default: 'text-primary-600 bg-primary-100',
     success: 'text-success-600 bg-success-100',
     warning: 'text-warning-600 bg-warning-100',
     info: 'text-blue-600 bg-blue-100',

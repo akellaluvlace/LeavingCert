@@ -1,8 +1,7 @@
 [build]
-  # Build script that handles both frontend and demo
-  command = "npm run build:integrated"
-  
-  # Publish directory: the folder containing both applications
+  # Focus on just the frontend for now - simpler deployment
+  base = "frontend"
+  command = "npm ci && npm run build"
   publish = "dist"
 
 # Environment variables for build

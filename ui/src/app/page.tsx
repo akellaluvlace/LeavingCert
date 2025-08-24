@@ -25,7 +25,7 @@ export default function LandingPage() {
             <span className="text-primary-600 block">Correction Platform</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Transforming Ireland's educational assessment system through intelligent automation,
+            Transforming Ireland&apos;s educational assessment system through intelligent automation,
             ensuring fairness, efficiency, and transparency for all stakeholders.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -154,7 +154,7 @@ export default function LandingPage() {
 
         {/* Footer */}
         <div className="text-center text-gray-500 space-y-2">
-          <p>&copy; 2024 AI Leaving Certificate Platform. Built for Ireland's educational future.</p>
+          <p>&copy; 2024 AI Leaving Certificate Platform. Built for Ireland&apos;s educational future.</p>
           <p className="text-sm">
             Powered by{' '}
             <a 
@@ -183,7 +183,7 @@ interface FeatureCardProps {
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
   return (
     <Card className="text-center hover:shadow-md transition-shadow">
-      <CardContent padding="lg">
+      <CardContent>
         <div className="text-primary-600 mb-4 flex justify-center">{icon}</div>
         <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
         <p className="text-gray-600 text-sm">{description}</p>
@@ -205,7 +205,7 @@ const DemoRoleCard: React.FC<DemoRoleCardProps> = ({ role, email }) => {
 
   return (
     <Card className="hover:shadow-md transition-shadow cursor-pointer" onClick={handleClick}>
-      <CardContent padding="sm">
+      <CardContent>
         <div className="text-center">
           <h4 className="font-medium text-gray-900 mb-1">{role}</h4>
           <p className="text-xs text-gray-600">{email}</p>
