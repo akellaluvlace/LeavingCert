@@ -4,7 +4,7 @@
   command = "npm ci && npm run build"
   publish = "dist"
 
-# Environment variables for build
+# Environment variables for build - updated for fresh deployment
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "8"
