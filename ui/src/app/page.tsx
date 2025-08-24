@@ -1,9 +1,7 @@
 // Landing Page
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
+import React from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Card, CardContent } from '@/components/ui/Card'
@@ -15,22 +13,7 @@ import {
 } from '@heroicons/react/24/outline'
 
 export default function LandingPage() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (session) {
-      router.push('/dashboard')
-    }
-  }, [session, router])
-
-  if (status === 'loading') {
-    return <LoadingScreen />
-  }
-
-  if (session) {
-    return null // Will redirect to dashboard
-  }
+  // Simplified - removed session check to prevent loading delay on homepage
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-blue-50">

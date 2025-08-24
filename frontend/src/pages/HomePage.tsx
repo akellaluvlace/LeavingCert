@@ -233,11 +233,90 @@ const HomePage = () => {
               gradient={['#e94560', '#f39c12', '#ff6b35']}
             />
             <FillWipeButton 
-              onClick={handleOpen}
-              label="Join Early Pilot Interest"
+              onClick={() => window.open('http://localhost:3000', '_blank')}
+              label="🇮🇪 Try Irish LC Demo"
               gradient={['#e94560', '#f39c12', '#ff6b35']}
               outlineColor="#f39c12"
             />
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Irish Demo Banner */}
+      <Box sx={{ 
+        py: 6, 
+        background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(46, 125, 50, 0.05) 100%)',
+        borderTop: '1px solid rgba(76, 175, 80, 0.2)',
+        borderBottom: '1px solid rgba(76, 175, 80, 0.2)'
+      }}>
+        <Container maxWidth="lg">
+          <Box sx={{ 
+            textAlign: 'center',
+            p: 4,
+            borderRadius: 3,
+            background: 'rgba(0, 0, 0, 0.3)',
+            border: '1px solid rgba(76, 175, 80, 0.3)',
+            position: 'relative',
+            overflow: 'hidden',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: '-100%',
+              width: '200%',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.1), transparent)',
+              animation: 'shimmer 3s infinite',
+            },
+            '@keyframes shimmer': {
+              '0%': { left: '-100%' },
+              '100%': { left: '100%' },
+            },
+          }}>
+            <Typography variant="h3" sx={{ 
+              fontWeight: 700, 
+              color: '#4caf50', 
+              mb: 2,
+              textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+            }}>
+              🇮🇪 Experience Our Irish Leaving Certificate Demo
+            </Typography>
+            <Typography variant="h6" sx={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              mb: 4, 
+              maxWidth: '600px', 
+              mx: 'auto',
+              lineHeight: 1.6
+            }}>
+              See our AI grading system in action with a complete Irish education platform.
+              Test all 7 user roles: Students, Teachers, Administrators, Parents, and more.
+            </Typography>
+            <Box sx={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              gap: 3,
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: 'center'
+            }}>
+              <LaunchFilledButton 
+                onClick={() => window.open('http://localhost:3000', '_blank')}
+                label="🚀 Launch Full Demo Platform"
+                gradient={['#4caf50', '#66bb6a', '#81c784']}
+              />
+              <FillWipeButton 
+                onClick={() => window.open('http://localhost:3000/auth/signin', '_blank')}
+                label="👨‍🏫 Try Teacher Dashboard"
+                gradient={['#4caf50', '#66bb6a', '#81c784']}
+                outlineColor="#66bb6a"
+              />
+            </Box>
+            <Typography variant="body2" sx={{ 
+              color: 'rgba(255,255,255,0.7)', 
+              mt: 3,
+              fontSize: '0.9rem'
+            }}>
+              ✨ Complete role-based dashboards • 📊 Real-time analytics • 🤖 Explainable AI • 🔄 Appeals workflow
+            </Typography>
           </Box>
         </Container>
       </Box>
@@ -1182,11 +1261,25 @@ const HomePage = () => {
           <Typography variant="body1" color="text.secondary" maxWidth="md" sx={{ mx: 'auto', mb: 6 }}>
             We're building this with students, teachers, and parents. Tell us what to keep, fix, or change.
           </Typography>
-          <LaunchFilledButton 
-            onClick={handleOpen}
-            label="Share Your Feedback"
-            gradient={['#e94560', '#f39c12', '#ff6b35']}
-          />
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: 3,
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: 'center'
+          }}>
+            <LaunchFilledButton 
+              onClick={() => window.open('http://localhost:3000', '_blank')}
+              label="🇮🇪 Try Irish LC Demo"
+              gradient={['#e94560', '#f39c12', '#ff6b35']}
+            />
+            <FillWipeButton 
+              onClick={handleOpen}
+              label="Share Your Feedback"
+              gradient={['#e94560', '#f39c12', '#ff6b35']}
+              outlineColor="#f39c12"
+            />
+          </Box>
         </Box>
       </Container>
 
