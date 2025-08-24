@@ -233,7 +233,7 @@ const HomePage = () => {
               gradient={['#e94560', '#f39c12', '#ff6b35']}
             />
             <FillWipeButton 
-              onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://irish-lc-demo.netlify.app', '_blank')}
+              onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000' : '/demo/', '_blank')}
               label="🇮🇪 Try Irish LC Demo"
               gradient={['#e94560', '#f39c12', '#ff6b35']}
               outlineColor="#f39c12"
@@ -299,12 +299,12 @@ const HomePage = () => {
               alignItems: 'center'
             }}>
               <LaunchFilledButton 
-                onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://irish-lc-demo.netlify.app', '_blank')}
+                onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000' : '/demo/', '_blank')}
                 label="🚀 Launch Full Demo Platform"
                 gradient={['#4caf50', '#66bb6a', '#81c784']}
               />
               <FillWipeButton 
-                onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000/auth/signin' : 'https://irish-lc-demo.netlify.app/auth/signin', '_blank')}
+                onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000/auth/signin' : '/demo/auth/signin/', '_blank')}
                 label="👨‍🏫 Try Teacher Dashboard"
                 gradient={['#4caf50', '#66bb6a', '#81c784']}
                 outlineColor="#66bb6a"
@@ -1269,7 +1269,7 @@ const HomePage = () => {
             alignItems: 'center'
           }}>
             <LaunchFilledButton 
-              onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://irish-lc-demo.netlify.app', '_blank')}
+              onClick={() => window.open(window.location.hostname === 'localhost' ? 'http://localhost:3000' : '/demo/', '_blank')}
               label="🇮🇪 Try Irish LC Demo"
               gradient={['#e94560', '#f39c12', '#ff6b35']}
             />

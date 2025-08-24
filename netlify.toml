@@ -1,11 +1,8 @@
 [build]
-  # Base directory: where the frontend code is located
-  base = "frontend"
-
-  # Build command: the command to build the production-ready files
-  command = "npm ci && npm run build"
-
-  # Publish directory: the folder containing the final build artifacts
+  # Build script that handles both frontend and demo
+  command = "npm run build:integrated"
+  
+  # Publish directory: the folder containing both applications
   publish = "dist"
 
 # Environment variables for build
@@ -15,12 +12,47 @@
   VITE_API_BASE_URL = "https://your-backend-domain.com"
   VITE_NODE_ENV = "production"
 
-# This is a rewrite rule. It makes sure that if someone types a URL
-# like /research, the browser still gets your index.html.
-# It's essential for Single Page Applications (SPAs) like React.
+# Route GraidGenie.com pages (Vite React app)
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/research"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/grading"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/future"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/challenge"
+  to = "/index.html"
+  status = 200
+
+# Route Irish LC Demo pages (Next.js app) - serve from /demo/ subdirectory
+[[redirects]]
+  from = "/demo"
+  to = "/demo/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/demo/*"
+  to = "/demo/:splat"
+  status = 200
+
+# API routes for the demo
+[[redirects]]
+  from = "/demo/api/*"
+  to = "/demo/api/:splat"
   status = 200
 
 # Headers for security and performance
@@ -31,3 +63,14 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Static file optimization
+[[headers]]
+  for = "/demo/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"  
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

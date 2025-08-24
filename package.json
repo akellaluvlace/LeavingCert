@@ -1,0 +1,23 @@
+{
+  "name": "graidgenie-integrated",
+  "version": "1.0.0",
+  "description": "Integrated GraidGenie.com and Irish LC Demo platform",
+  "scripts": {
+    "build:integrated": "npm run build:frontend && npm run build:demo && npm run combine:builds",
+    "build:frontend": "cd frontend && npm ci && npm run build",
+    "build:demo": "cd ui && npm ci && npm run build",
+    "combine:builds": "npm run setup:dist && npm run copy:frontend && npm run copy:demo",
+    "setup:dist": "rm -rf dist && mkdir -p dist",
+    "copy:frontend": "cp -r frontend/dist/* dist/",
+    "copy:demo": "mkdir -p dist/demo && cp -r ui/out/* dist/demo/",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:demo": "cd ui && npm run dev",
+    "install:all": "npm install && cd frontend && npm install && cd ../ui && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akellaluvlace/LeavingCert.git"
+  },
+  "author": "AI Education Platform Team",
+  "license": "MIT"
+}
