@@ -1,7 +1,6 @@
 [build]
-  # Focus on just the frontend for now - simpler deployment
-  base = "frontend"
-  command = "npm ci && npm run build"
+  # Integrated build: GraidGenie.com + Irish LC Demo
+  command = "npm run build:integrated"
   publish = "dist"
 
 # Environment variables for build - updated for fresh deployment

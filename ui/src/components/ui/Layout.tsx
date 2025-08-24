@@ -48,8 +48,8 @@ export const Layout: React.FC<LayoutProps> = ({
     return null
   }
 
-  const navigation = getDashboardNavigationForRole(session.user.role as UserRole)
-  const userRole = session.user.role as UserRole
+  const navigation = getDashboardNavigationForRole((session.user as any)?.role as UserRole)
+  const userRole = (session.user as any)?.role as UserRole
   
   const getRoleDisplayName = (role: UserRole) => {
     const roleNames = {
@@ -143,7 +143,7 @@ export const Layout: React.FC<LayoutProps> = ({
                 {/* User menu */}
                 <div className="flex items-center space-x-3">
                   <div className="text-right text-sm">
-                    <div className="font-medium text-gray-900">{session.user.name}</div>
+                    <div className="font-medium text-gray-900">{(session.user as any)?.name}</div>
                     <div className="text-gray-600">{getRoleDisplayName(userRole)}</div>
                   </div>
                   <div className="flex items-center space-x-2">

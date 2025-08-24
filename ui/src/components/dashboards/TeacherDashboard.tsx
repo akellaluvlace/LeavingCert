@@ -44,7 +44,7 @@ export const TeacherDashboard: React.FC = () => {
           subtitle={`Target: ${teacherData.targetDaily || 50}`}
           icon={CheckIcon}
           color="success"
-          progress={(teacherData.completedToday / teacherData.targetDaily) * 100}
+          progress={((teacherData.completedToday || 0) / (teacherData.targetDaily || 1)) * 100}
         />
         <StatCard
           title="Accuracy Rate"
@@ -179,7 +179,7 @@ const MarkingQueue: React.FC<MarkingQueueProps> = ({ papers, onSelectPaper, sele
           </div>
         }
       />
-      <CardContent padding="none">
+      <CardContent >
         <div className="space-y-0 divide-y divide-gray-200">
           {filteredPapers.map((paper) => (
             <PaperQueueItem

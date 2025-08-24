@@ -273,7 +273,7 @@ export const RealTimeAnalytics: React.FC = () => {
       <CardHeader 
         title="Real-time System Metrics"
         subtitle="Live performance monitoring"
-        actions={
+        action={
           <div className="flex items-center space-x-2">
             <div className={`w-2 h-2 rounded-full ${isLive ? 'bg-green-500' : 'bg-gray-400'}`} />
             <span className="text-sm text-gray-600">{isLive ? 'Live' : 'Offline'}</span>

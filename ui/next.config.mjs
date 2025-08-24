@@ -22,6 +22,16 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   
+  // Skip API routes for static export
+  skipTrailingSlashRedirect: true,
+  
+  // Don't build API routes when doing static export  
+  experimental: {
+    outputFileTracingIgnores: [
+      '**/api/**/*',
+    ],
+  },
+
   env: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL || 'http://localhost:3000',
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || 'your-secret-key',

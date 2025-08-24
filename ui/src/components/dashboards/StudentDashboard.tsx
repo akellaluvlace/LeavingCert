@@ -44,7 +44,7 @@ export const StudentDashboard: React.FC = () => {
         <div className="lg:col-span-2 space-y-6">
           <DetailedFeedbackSection 
             subject={selectedSubject}
-            result={studentData.results?.[selectedSubject]}
+            result={studentData.results?.[selectedSubject as keyof typeof studentData.results]}
             feedback={studentData.feedback}
           />
           <PerformanceAnalysis results={studentData.results} />

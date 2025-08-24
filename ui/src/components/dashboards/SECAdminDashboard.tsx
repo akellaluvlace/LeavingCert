@@ -88,7 +88,7 @@ export const SECAdminDashboard: React.FC = () => {
 
         {/* Right Column: Management Actions */}
         <div className="space-y-6">
-          <QuickActionsCard />
+          <QuickActionsCard onViewAnalytics={() => setActiveTab('analytics')} />
           <UserManagementCard />
           <SystemConfigCard />
         </div>
@@ -316,7 +316,11 @@ const ProcessingMetricsCard: React.FC<ProcessingMetricsCardProps> = ({
 }
 
 // Quick Actions Card
-const QuickActionsCard: React.FC = () => {
+interface QuickActionsCardProps {
+  onViewAnalytics: () => void
+}
+
+const QuickActionsCard: React.FC<QuickActionsCardProps> = ({ onViewAnalytics }) => {
   return (
     <Card>
       <CardHeader title="Quick Actions" />
@@ -326,7 +330,7 @@ const QuickActionsCard: React.FC = () => {
             variant="primary" 
             fullWidth 
             leftIcon={<DocumentChartBarIcon className="h-4 w-4" />}
-            onClick={() => setActiveTab('analytics')}
+            onClick={onViewAnalytics}
           >
             View Analytics Dashboard
           </Button>

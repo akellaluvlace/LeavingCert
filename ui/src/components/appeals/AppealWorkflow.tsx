@@ -379,7 +379,7 @@ const ReviewerAppealView: React.FC<{
             title="Appeals Queue"
             subtitle={`${appeals.length} pending appeals`}
           />
-          <CardContent padding="none">
+          <CardContent >
             <div className="divide-y divide-gray-200">
               {appeals.map((appeal) => (
                 <AppealQueueItem
