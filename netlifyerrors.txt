@@ -1,0 +1,163 @@
+The Netlify deploy errored, with the following guidance provided:
+
+**Diagnosis:**
+The build failure is due to a missing script "build:integrated" as referenced in the Netlify configuration file `netlify.toml`. Since this script is not available in the `package.json` file, the build command `npm run build:integrated` fails.
+
+**Solution:**
+1. Verify that the script "build:integrated" is defined in the `package.json` file in the repository.
+2. If the script is missing, add the "build:integrated" script to the `scripts` section in the `package.json` file.
+
+Following these steps will ensure that the missing script is defined, allowing the build process to run successfully.
+
+The relevant error logs are:
+
+Line 80: [36m[1m❯ Config file[22m[39m
+Line 81:   /opt/build/repo/netlify.toml
+Line 82: [36m[1m​[22m[39m
+Line 83: [36m[1m❯ Context[22m[39m
+Line 84:   production
+Line 85: [96m[1m​[22m[39m
+Line 86: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 87: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 88: ​
+Line 89: [36m$ npm run build:integrated[39m
+Line 90: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 91: npm ERR! Missing script: "build:integrated"
+Line 92: npm ERR!
+Line 93: npm ERR! To see a list of scripts, run:
+Line 94: npm ERR!   npm run
+Line 95: npm ERR! A complete log of this run can be found in:
+Line 96: npm ERR!     /opt/buildhome/.npm/_logs/2025-08-24T15_33_24_075Z-debug-0.log
+Line 97: [91m[1m​[22m[39m
+Line 98: [91m[1m"build.command" failed                                        [22m[39m
+Line 99: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 100: ​
+Line 101:   [31m[1mError message[22m[39m
+Line 102:   Command failed with exit code 1: npm run build:integrated
+Line 103: ​
+Line 104:   [31m[1mError location[22m[39m
+Line 105:   In build.command from netlify.toml:
+Line 106:   npm run build:integrated
+Line 107: ​
+Line 108:   [31m[1mResolved config[22m[39m
+Line 109:   build:
+Line 110:     base: /opt/build/repo/frontend
+Line 111:     command: npm run build:integrated
+Line 112:     commandOrigin: config
+Line 113:     environment:
+Line 114:       - VITE_API_BASE_URL
+Line 115:       - VITE_NODE_ENV
+Line 116:       - NODE_VERSION
+Line 117:       - NPM_VERSION
+Line 118:     publish: /opt/build/repo/frontend/dist
+Line 119:     publishOrigin: config
+Line 120:   headers:
+Line 121:     - for: /*
+      values:
+        Referrer-Policy: strict-origin-when-cross-origin
+        X-Content-Type-Options: nosniff
+   
+Line 122: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 123: Failing build: Failed to build site
+Line 124: Finished processing build request in 19.156s
+
+
+
+4:33:23 PM: Netlify Build                                                 
+4:33:23 PM: ────────────────────────────────────────────────────────────────
+4:33:23 PM: ​
+4:33:23 PM: ❯ Version
+4:33:23 PM:   @netlify/build 35.1.2
+4:33:23 PM: ​
+4:33:23 PM: ❯ Flags
+4:33:23 PM:   accountId: 6825b02bb0ef1069c15608b4
+4:33:23 PM:   baseRelDir: true
+4:33:23 PM:   buildId: 68ab30afb1faf90008be10a1
+4:33:23 PM:   deployId: 68ab30afb1faf90008be10a3
+4:33:23 PM: ​
+4:33:23 PM: ❯ Current directory
+4:33:23 PM:   /opt/build/repo/frontend
+4:33:23 PM: ​
+4:33:23 PM: ❯ Config file
+4:33:23 PM:   /opt/build/repo/netlify.toml
+4:33:23 PM: ​
+4:33:23 PM: ❯ Context
+4:33:23 PM:   production
+4:33:23 PM: ​
+4:33:23 PM: build.command from netlify.toml                               
+4:33:23 PM: ────────────────────────────────────────────────────────────────
+4:33:23 PM: ​
+4:33:23 PM: $ npm run build:integrated
+4:33:24 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+4:33:24 PM: npm ERR! Missing script: "build:integrated"
+4:33:24 PM: npm ERR!
+4:33:24 PM: npm ERR! To see a list of scripts, run:
+4:33:24 PM: npm ERR!   npm run
+4:33:24 PM: npm ERR! A complete log of this run can be found in:
+4:33:24 PM: npm ERR!     /opt/buildhome/.npm/_logs/2025-08-24T15_33_24_075Z-debug-0.log
+4:33:24 PM: ​
+4:33:24 PM: "build.command" failed                                        
+4:33:24 PM: ────────────────────────────────────────────────────────────────
+4:33:24 PM: ​
+4:33:24 PM:   Error message
+4:33:24 PM:   Command failed with exit code 1: npm run build:integrated (https://ntl.fyi/exit-code-1)
+4:33:24 PM: ​
+4:33:24 PM:   Error location
+4:33:24 PM:   In build.command from netlify.toml:
+4:33:24 PM:   npm run build:integrated
+4:33:24 PM: ​
+4:33:24 PM:   Resolved config
+4:33:24 PM:   build:
+4:33:24 PM:     base: /opt/build/repo/frontend
+4:33:24 PM:     command: npm run build:integrated
+4:33:24 PM:     commandOrigin: config
+4:33:24 PM:     environment:
+4:33:24 PM:       - VITE_API_BASE_URL
+4:33:24 PM:       - VITE_NODE_ENV
+4:33:24 PM:       - NODE_VERSION
+4:33:24 PM:       - NPM_VERSION
+4:33:24 PM:     publish: /opt/build/repo/frontend/dist
+4:33:24 PM:     publishOrigin: config
+4:33:24 PM:   headers:
+4:33:24 PM:     - for: /*
+      values:
+        Referrer-Policy: strict-origin-when-cross-origin
+        X-Content-Type-Options: nosniff
+        X-Frame-Options: DENY
+        X-XSS-Protection: 1; mode=block
+    - for: /demo/_next/static/*
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: /assets/*
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+  headersOrigin: config
+  redirects:
+    - from: /
+      status: 200
+      to: /index.html
+    - from: /research
+      status: 200
+      to: /index.html
+    - from: /grading
+      status: 200
+      to: /index.html
+    - from: /future
+      status: 200
+      to: /index.html
+    - from: /challenge
+      status: 200
+      to: /index.html
+    - from: /demo
+      status: 200
+      to: /demo/index.html
+    - from: /demo/*
+      status: 200
+      to: /demo/:splat
+    - from: /demo/api/*
+      status: 200
+      to: /demo/api/:splat
+  redirectsOrigin: config
+4:33:24 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+4:33:24 PM: Failing build: Failed to build site
+4:33:25 PM: Finished processing build request in 19.156s
