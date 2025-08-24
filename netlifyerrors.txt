@@ -1,33 +1,45 @@
 The Netlify deploy errored, with the following guidance provided:
 
 **Diagnosis:**
-The build failure is due to a missing script "build:integrated" as referenced in the Netlify configuration file `netlify.toml`. Since this script is not available in the `package.json` file, the build command `npm run build:integrated` fails.
+The build failure is due to a missing dependency that is required for the Vite build process.
 
 **Solution:**
-1. Verify that the script "build:integrated" is defined in the `package.json` file in the repository.
-2. If the script is missing, add the "build:integrated" script to the `scripts` section in the `package.json` file.
-
-Following these steps will ensure that the missing script is defined, allowing the build process to run successfully.
+1. Verify that the missing dependency is listed in the `package.json` file or was committed to the repository.
+2. If the package is not listed, add the missing dependency to the `dependencies` or `devDependencies` section of the `package.json` file.
+3. Re-run the build to ensure that the dependency is now correctly resolved.
 
 The relevant error logs are:
 
-Line 80: [36m[1m❯ Config file[22m[39m
-Line 81:   /opt/build/repo/netlify.toml
-Line 82: [36m[1m​[22m[39m
-Line 83: [36m[1m❯ Context[22m[39m
-Line 84:   production
-Line 85: [96m[1m​[22m[39m
-Line 86: [96m[1mbuild.command from netlify.toml                               [22m[39m
-Line 87: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
-Line 88: ​
-Line 89: [36m$ npm run build:integrated[39m
-Line 90: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 54: npm WARN EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+Line 55: npm WARN EBADENGINE   current: { node: 'v18.20.8', npm: '8.19.4' }
+Line 56: npm WARN EBADENGINE }
+Line 57: up to date in 418ms
+Line 58: npm packages installed
+Line 59: Successfully installed dependencies
+Line 60: Starting build script
+Line 61: Detected 1 framework(s)
+Line 62: "vite" at version "7.1.2"
+Line 63: Section completed: initializing
+Line 64: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 65: [96m[1m​[22m[39m
+Line 66: [96m[1mNetlify Build                                                 [22m[39m
+Line 67: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 68: [36m[1m​[22m[39m
+Line 69: [36m[1m❯ Version[22m[39m
+Line 70:   @netlify/build 35.1.2
+Line 71: [36m[1m​[22m[39m
+Line 72: [36m[1m❯ Flags[22m[39m
+Line 73:   accountId: 6825b02bb0ef1069c15608b4
+Line 74:   baseRelDir: true
+Line 88: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 89: ​
+Line 90: [36m$ npm run build:integrated[39m
 Line 91: npm ERR! Missing script: "build:integrated"
 Line 92: npm ERR!
 Line 93: npm ERR! To see a list of scripts, run:
 Line 94: npm ERR!   npm run
 Line 95: npm ERR! A complete log of this run can be found in:
-Line 96: npm ERR!     /opt/buildhome/.npm/_logs/2025-08-24T15_33_24_075Z-debug-0.log
+Line 96: npm ERR!     /opt/buildhome/.npm/_logs/2025-08-24T16_13_15_435Z-debug-0.log
 Line 97: [91m[1m​[22m[39m
 Line 98: [91m[1m"build.command" failed                                        [22m[39m
 Line 99: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
@@ -59,67 +71,67 @@ Line 121:     - for: /*
    
 Line 122: Build failed due to a user error: Build script returned non-zero exit code: 2
 Line 123: Failing build: Failed to build site
-Line 124: Finished processing build request in 19.156s
+Line 124: Finished processing build request in 19.909s
 
 
 
-4:33:23 PM: Netlify Build                                                 
-4:33:23 PM: ────────────────────────────────────────────────────────────────
-4:33:23 PM: ​
-4:33:23 PM: ❯ Version
-4:33:23 PM:   @netlify/build 35.1.2
-4:33:23 PM: ​
-4:33:23 PM: ❯ Flags
-4:33:23 PM:   accountId: 6825b02bb0ef1069c15608b4
-4:33:23 PM:   baseRelDir: true
-4:33:23 PM:   buildId: 68ab30afb1faf90008be10a1
-4:33:23 PM:   deployId: 68ab30afb1faf90008be10a3
-4:33:23 PM: ​
-4:33:23 PM: ❯ Current directory
-4:33:23 PM:   /opt/build/repo/frontend
-4:33:23 PM: ​
-4:33:23 PM: ❯ Config file
-4:33:23 PM:   /opt/build/repo/netlify.toml
-4:33:23 PM: ​
-4:33:23 PM: ❯ Context
-4:33:23 PM:   production
-4:33:23 PM: ​
-4:33:23 PM: build.command from netlify.toml                               
-4:33:23 PM: ────────────────────────────────────────────────────────────────
-4:33:23 PM: ​
-4:33:23 PM: $ npm run build:integrated
-4:33:24 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
-4:33:24 PM: npm ERR! Missing script: "build:integrated"
-4:33:24 PM: npm ERR!
-4:33:24 PM: npm ERR! To see a list of scripts, run:
-4:33:24 PM: npm ERR!   npm run
-4:33:24 PM: npm ERR! A complete log of this run can be found in:
-4:33:24 PM: npm ERR!     /opt/buildhome/.npm/_logs/2025-08-24T15_33_24_075Z-debug-0.log
-4:33:24 PM: ​
-4:33:24 PM: "build.command" failed                                        
-4:33:24 PM: ────────────────────────────────────────────────────────────────
-4:33:24 PM: ​
-4:33:24 PM:   Error message
-4:33:24 PM:   Command failed with exit code 1: npm run build:integrated (https://ntl.fyi/exit-code-1)
-4:33:24 PM: ​
-4:33:24 PM:   Error location
-4:33:24 PM:   In build.command from netlify.toml:
-4:33:24 PM:   npm run build:integrated
-4:33:24 PM: ​
-4:33:24 PM:   Resolved config
-4:33:24 PM:   build:
-4:33:24 PM:     base: /opt/build/repo/frontend
-4:33:24 PM:     command: npm run build:integrated
-4:33:24 PM:     commandOrigin: config
-4:33:24 PM:     environment:
-4:33:24 PM:       - VITE_API_BASE_URL
-4:33:24 PM:       - VITE_NODE_ENV
-4:33:24 PM:       - NODE_VERSION
-4:33:24 PM:       - NPM_VERSION
-4:33:24 PM:     publish: /opt/build/repo/frontend/dist
-4:33:24 PM:     publishOrigin: config
-4:33:24 PM:   headers:
-4:33:24 PM:     - for: /*
+5:13:15 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+5:13:15 PM: Netlify Build                                                 
+5:13:15 PM: ────────────────────────────────────────────────────────────────
+5:13:15 PM: ​
+5:13:15 PM: ❯ Version
+5:13:15 PM:   @netlify/build 35.1.2
+5:13:15 PM: ​
+5:13:15 PM: ❯ Flags
+5:13:15 PM:   accountId: 6825b02bb0ef1069c15608b4
+5:13:15 PM:   baseRelDir: true
+5:13:15 PM:   buildId: 68ab3a076c334700089cb2c6
+5:13:15 PM:   deployId: 68ab3a076c334700089cb2c8
+5:13:15 PM: ​
+5:13:15 PM: ❯ Current directory
+5:13:15 PM:   /opt/build/repo/frontend
+5:13:15 PM: ​
+5:13:15 PM: ❯ Config file
+5:13:15 PM:   /opt/build/repo/netlify.toml
+5:13:15 PM: ​
+5:13:15 PM: ❯ Context
+5:13:15 PM:   production
+5:13:15 PM: ​
+5:13:15 PM: build.command from netlify.toml                               
+5:13:15 PM: ────────────────────────────────────────────────────────────────
+5:13:15 PM: ​
+5:13:15 PM: $ npm run build:integrated
+5:13:15 PM: npm ERR! Missing script: "build:integrated"
+5:13:15 PM: npm ERR!
+5:13:15 PM: npm ERR! To see a list of scripts, run:
+5:13:15 PM: npm ERR!   npm run
+5:13:15 PM: npm ERR! A complete log of this run can be found in:
+5:13:15 PM: npm ERR!     /opt/buildhome/.npm/_logs/2025-08-24T16_13_15_435Z-debug-0.log
+5:13:15 PM: ​
+5:13:15 PM: "build.command" failed                                        
+5:13:15 PM: ────────────────────────────────────────────────────────────────
+5:13:15 PM: ​
+5:13:15 PM:   Error message
+5:13:15 PM:   Command failed with exit code 1: npm run build:integrated (https://ntl.fyi/exit-code-1)
+5:13:15 PM: ​
+5:13:15 PM:   Error location
+5:13:15 PM:   In build.command from netlify.toml:
+5:13:15 PM:   npm run build:integrated
+5:13:15 PM: ​
+5:13:15 PM:   Resolved config
+5:13:15 PM:   build:
+5:13:15 PM:     base: /opt/build/repo/frontend
+5:13:15 PM:     command: npm run build:integrated
+5:13:15 PM:     commandOrigin: config
+5:13:15 PM:     environment:
+5:13:15 PM:       - VITE_API_BASE_URL
+5:13:15 PM:       - VITE_NODE_ENV
+5:13:15 PM:       - NODE_VERSION
+5:13:15 PM:       - NPM_VERSION
+5:13:15 PM:     publish: /opt/build/repo/frontend/dist
+5:13:15 PM:     publishOrigin: config
+5:13:15 PM:   headers:
+5:13:15 PM:     - for: /*
       values:
         Referrer-Policy: strict-origin-when-cross-origin
         X-Content-Type-Options: nosniff
@@ -158,6 +170,6 @@ Line 124: Finished processing build request in 19.156s
       status: 200
       to: /demo/api/:splat
   redirectsOrigin: config
-4:33:24 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
-4:33:24 PM: Failing build: Failed to build site
-4:33:25 PM: Finished processing build request in 19.156s
+5:13:15 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+5:13:15 PM: Failing build: Failed to build site
+5:13:16 PM: Finished processing build request in 19.909s
