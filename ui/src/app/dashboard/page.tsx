@@ -119,19 +119,7 @@ const SchoolDashboard = () => (
   </div>
 )
 
-const ParentDashboard = () => (
-  <div className="text-center py-12">
-    <h2 className="text-xl font-semibold mb-4">Parent Dashboard</h2>
-    <p className="text-gray-600">Parent monitoring dashboard coming soon...</p>
-  </div>
-)
-
-const PolicyDashboard = () => (
-  <div className="text-center py-12">
-    <h2 className="text-xl font-semibold mb-4">Policy Maker Dashboard</h2>
-    <p className="text-gray-600">Strategic analytics dashboard coming soon...</p>
-  </div>
-)
+// Removed duplicate ParentDashboard - using imported component instead
 
 const DefaultDashboard = () => (
   <div className="text-center py-12">
