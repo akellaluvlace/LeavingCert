@@ -9,6 +9,10 @@ import { useEffect } from 'react'
 import { Layout } from '@/components/ui/Layout'
 import { TeacherDashboard } from '@/components/dashboards/TeacherDashboard'
 import { StudentDashboard } from '@/components/dashboards/StudentDashboard'
+import { SECAdminDashboard } from '@/components/dashboards/SECAdminDashboard'
+import { SchoolAdminDashboard } from '@/components/dashboards/SchoolAdminDashboard'
+import { ParentDashboard } from '@/components/dashboards/ParentDashboard'
+import { PolicyMakerDashboard } from '@/components/dashboards/PolicyMakerDashboard'
 import { UserRole } from '@/types/auth'
 
 export default function DashboardPage() {
@@ -66,13 +70,13 @@ export default function DashboardPage() {
       case UserRole.REVIEWER_MODERATOR:
         return <ReviewerDashboard />
       case UserRole.SEC_ADMINISTRATOR:
-        return <AdminDashboard />
+        return <SECAdminDashboard />
       case UserRole.SCHOOL_ADMINISTRATOR:
-        return <SchoolDashboard />
+        return <SchoolAdminDashboard />
       case UserRole.PARENT:
         return <ParentDashboard />
       case UserRole.POLICY_MAKER:
-        return <PolicyDashboard />
+        return <PolicyMakerDashboard />
       default:
         return <DefaultDashboard />
     }
